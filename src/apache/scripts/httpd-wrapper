@@ -18,4 +18,8 @@ else
 	echo "No certificates are active: using HTTP only"
 fi
 
+if [ -f ${SNAP_COMMON}/apache/switches/ENABLE_SPREED_REVERSE_PROXY ]; then
+	params="$params -DEnableSpreed"
+fi
+
 httpd -d $SNAP $params $@
